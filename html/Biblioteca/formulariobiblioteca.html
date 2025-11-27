@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@600&display=swap" rel="stylesheet">
+    <title>Reserva de Livros - Biblioteca</title>
+    <link rel="stylesheet" href="C:\Apache\htdocs\Dev_1o_Ano\cidade\style.css">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca Digital</h1>
+        <div class="header-buttons">
+            <a href="biblioteca.html">Voltar à Biblioteca</a>
+            <a href="acervo.html">Ir para o Acervo</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Reserva de Livros</h2>
+        <form>
+            <label for="nome">Nome do usuário:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="livro">Livro a reservar:</label>
+            <select id="livro" name="livro" required>
+                <option value="">Selecione um livro</option>
+                <option value="livro1">Coraline</option>
+                <option value="livro2">O avesso da pele</option>
+                <option value="livro3">Os sofrimentos do jovem Werther</option>
+                <option value="livro4">Deuses americanos</option>
+                <option value="livro5">Memórias do subsolo</option>
+                <option value="livro6">Morra, amor</option>
+                <option value="livro7">1984</option>
+                <option value="livro8">O processo</option>
+            </select>
+
+            <label for="data">Data de retirada:</label>
+            <input type="date" id="data" name="data" required>
+
+            <button type="button" id="reservar" onClick="reservarLivro()">Reservar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cidade Inteligente. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="C:\Users\Dev_1o_Ano\Documents\cidade\script.js"></script>
+</body>
+</html>

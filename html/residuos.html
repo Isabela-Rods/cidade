@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@600&display=swap" rel="stylesheet">
+    <title>Resíduos - Cidade Inteligente</title>
+    <link rel="stylesheet" href="C:\Apache\htdocs\Dev_1o_Ano\cidade\style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestão de Resíduos</h1>
+        <a href="index.html" class="voltar">Voltar ao menu</a>
+    </header>
+    <main>
+        <form>
+            <label for="nome">Nome do usuário:</label>
+            <input type="text" id="nome" name="nome">
+
+            <label for="localizacao">Localização da lixeira:</label>
+            <input type="text" id="localizacao" name="localizacao">
+
+            <label for="tipo">Tipo de resíduo:</label>
+            <select id="tipo" name="tipo">
+                <option value="organico">Orgânico</option>
+                <option value="reciclavel">Reciclável</option>
+                <option value="perigoso">Perigoso</option>
+            </select>
+
+            <label for="alerta">Lixeira cheia:</label>
+            <select id="alerta" name="alerta">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <button type="submit">Registrar ponto de coleta</button>
+        </form>
+    </main>
+    <footer>
+    <p>&copy; 2024 Cidade Inteligente. Todos os direitos reservados.</p>
+</body>
+</html>
