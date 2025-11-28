@@ -1,6 +1,7 @@
 function reservarLivro() {
     const select = document.getElementById("livro");
     const livro = select.options[select.selectedIndex].text;
+    
 
     if (select.value === "") {
         alert("Selecione um livro antes de reservar.");
