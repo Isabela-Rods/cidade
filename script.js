@@ -27,6 +27,23 @@ function reservarLivro() {
     alert(`Reserva feita!\n${livroTexto} reservado para ${nome}.`);
 }
 
+function pesquisarLivro() {
+    const termo = document.getElementById("pesquisa").value.toLowerCase();
+    const livros = document.querySelectorAll(".livro");
+
+    livros.forEach(livro => {
+        const titulo = livro.querySelector("h3").innerText.toLowerCase();
+        const autor = livro.querySelector("p").innerText.toLowerCase();
+
+        if (titulo.includes(termo) || autor.includes(termo)) {
+            livro.style.display = "block";
+        } else {
+            livro.style.display = "none";
+        }
+    });
+
+}
+
 function notificarUsuario() {
     const div = document.getElementById("notificacoes");
     if (!div) return;
