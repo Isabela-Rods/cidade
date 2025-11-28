@@ -1,31 +1,55 @@
 function reservarLivro() {
-    const select = document.getElementById("livro");
-    const livro = select.options[select.selectedIndex].text;
-    
+    const nome = document.getElementById("nome").value.trim();
+    const livroSelect = document.getElementById("livro");
+    const data = document.getElementById("data").value;
 
-    if (select.value === "") {
-        alert("Selecione um livro antes de reservar.");
-    } else {
-        alert(`${livro} reservado com sucesso!`);
+    const livroTexto = livroSelect.options[livroSelect.selectedIndex].text;
+
+    if (nome === "") {
+        alert("Digite seu nome.");
+        return;
     }
+
+    if (livroSelect.value === "") {
+        alert("Selecione um livro.");
+        return;
+    }
+
+    if (data === "") {
+        alert("Selecione a data de retirada.");
+        return;
+    }
+
+    localStorage.setItem("usuarioNome", nome);
+    localStorage.setItem("livroReservado", livroTexto);
+    localStorage.setItem("dataRetirada", data);
+
+    alert(`Reserva feita!\n${livroTexto} reservado para ${nome}.`);
 }
 
-function pesquisarLivro() {
-    const termo = document.getElementById("pesquisa").value.toLowerCase();
-    const livros = document.querySelectorAll(".livro");
+function notificarUsuario() {
+    const div = document.getElementById("notificacoes");
+    if (!div) return;
 
-    livros.forEach(livro => {
-        const titulo = livro.querySelector("h3").innerText.toLowerCase();
-        const autor = livro.querySelector("p").innerText.toLowerCase();
+    const nome = localStorage.getItem("usuarioNome");
+    const livro = localStorage.getItem("livroReservado");
+    const data = localStorage.getItem("dataRetirada");
 
-        if (titulo.includes(termo) || autor.includes(termo)) {
-            livro.style.display = "block";
-        } else {
-            livro.style.display = "none";
-        }
-    });
+    if (!nome || !livro || !data) return;
 
+    div.innerHTML =
+        `📚 <strong>${livro}</strong> foi reservado para <strong>${nome}</strong><br>
+        📅 Data da retirada: <strong>${data}</strong>`;
 }
+
+function limparReserva() {
+    localStorage.removeItem("usuarioNome");
+    localStorage.removeItem("livroReservado");
+    localStorage.removeItem("dataRetirada");
+
+    alert("Reserva apagada.");
+}
+
 function descricao() {
     document.querySelectorAll(".livro").forEach(livro => {
         livro.addEventListener("click", () => {
