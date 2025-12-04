@@ -5,7 +5,7 @@ include('conexao.php');
 
 <?php
 // LISTAR TODAS AS RESERVAS
-$sql = "SELECT * FROM Reserva";
+$sql = "SELECT * FROM Livro";
 $reservas = $conn->query($sql);
 ?>
 
@@ -13,7 +13,7 @@ $reservas = $conn->query($sql);
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Reservas</title>
+    <title>Livros</title>
 
     <style>
         body {
@@ -57,24 +57,24 @@ $reservas = $conn->query($sql);
 </head>
 <body>
 
-<h2>Lista de Reservas</h2>
+<h2>Lista de Livros</h2>
 
 <table>
     <tr>
-        <th>ID Reserva</th>
-        <th>Nome do Cliente</th>
+        <th>ID Livro</th>
+        <th>ID Cliente</th>
         <th>Livro</th>
-        <th>Data da Reserva</th>
-        <th>Data da Entrega</th>
+        <th>Autor</th>
+        <th>Reserva</th>
     </tr>
 
     <?php while ($row = $reservas->fetch_assoc()): ?>
         <tr>
-            <td><?= $row['id_reserva'] ?></td>
-            <td><?= $row['nome_cliente'] ?></td>
-            <td><?= $row['livro'] ?></td>
+            <td><?= $row['id_livro'] ?></td>
+            <td><?= $row['id_usuario'] ?></td>
+            <td><?= $row['Livro'] ?></td>
+            <td><?= $row['Autor'] ?></td>
             <td><?= $row['data_reserva'] ?></td>
-            <td><?= $row['data_entrega'] ?></td>
         </tr>
     <?php endwhile; ?>
 
