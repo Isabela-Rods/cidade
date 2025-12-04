@@ -18,7 +18,9 @@
 
     <main>
         <h2>Reserva de Livros</h2>
-        <form>
+        
+            <form action="salvar_reserva.php" method="POST">
+
             <label for="nome">Nome do usuário:</label>
             <input type="text" id="nome" name="nome" required>
             
@@ -37,6 +39,7 @@
 
             <label for="data">Data de retirada:</label>
             <input type="date" id="data" name="data" required>
+
 
             <button type="button" id="reservar" onClick="reservarLivro()">Reservar</button>
             <button type="button" id="limpar" onClick="limparReserva()">Limpar Reserva</button>

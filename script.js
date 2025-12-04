@@ -24,7 +24,6 @@ function reservarLivro() {
     localStorage.setItem("livroReservado", livroTexto);
     localStorage.setItem("dataRetirada", data);
 
-    alert(`Reserva feita!\n${livroTexto} reservado para ${nome}.`);
 }
 
 function pesquisarLivro() {
@@ -79,3 +78,23 @@ function descricao() {
     });
 }
 descricao();
+
+document.getElementById("LoginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Pegando valores dos inputs
+    let usuario = document.getElementById("usuario").value.trim().toLowerCase();
+    let senha = document.getElementById("senha").value.trim();
+    let tipo = document.getElementById("tipo").value;
+
+ // Verificação
+if (usuario === "cliente" && senha === "1234" && tipo === "Cliente") {
+    window.location.href = "file:///C:/Apache/htdocs/Dev_1o_Ano/cidade/html/Biblioteca/biblioteca.html"; 
+
+} else if (usuario === "atendente" && senha === "5678" && tipo === "Atendente") {
+    window.location.href = "file:///C:/Apache/htdocs/Dev_1o_Ano/cidade/html/BibliotecaAtendente/bibliotecaAtendente.html"; 
+
+} else {
+    alert("Usuário, senha ou tipo incorreto!");
+    }
+});
