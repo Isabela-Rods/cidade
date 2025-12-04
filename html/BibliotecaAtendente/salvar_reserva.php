@@ -17,4 +17,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Erro: " . $conn->error;
 }
+
+print_r($_POST);
+exit;
 ?>

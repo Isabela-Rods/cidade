@@ -22,7 +22,7 @@
             <form action="salvar_reserva.php" method="POST">
 
             <label for="nome">Nome do usuário:</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text" id="nome" name="nome_cliente" required>
             
             <label for="livro">Livro a reservar:</label>
             <select id="livro" name="livro" required>
@@ -41,7 +41,7 @@
             <input type="date" id="data" name="data" required>
 
             
-            <button type="submit" id="reservar" onClick="reservarLivro()">Reservar</button>
+            <button type="button" id="reservar" onClick="reservarLivro()">Reservar</button>
             <button type="button" id="limpar" onClick="limparReserva()">Limpar Reserva</button>
         </form>
     </main>
@@ -53,4 +53,3 @@
     <script src="../../script.js"></script>
 </body>
 </html>
-

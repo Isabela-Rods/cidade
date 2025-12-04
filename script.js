@@ -23,6 +23,8 @@ function reservarLivro() {
     localStorage.setItem("usuarioNome", nome);
     localStorage.setItem("livroReservado", livroTexto);
     localStorage.setItem("dataRetirada", data);
+    alert(`Reserva feita!\n${livroTexto} Reservado para ${nome}.`);
+
 
 }
 
