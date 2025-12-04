@@ -64,7 +64,7 @@ function limparReserva() {
     localStorage.removeItem("usuarioNome");
     localStorage.removeItem("livroReservado");
     localStorage.removeItem("dataRetirada");
-
+ 
     alert("Reserva apagada.");
 }
 
@@ -91,10 +91,10 @@ document.getElementById("LoginForm").addEventListener("submit", function(e) {
 
  // Verificação
 if (usuario === "cliente" && senha === "1234" && tipo === "Cliente") {
-    window.location.href = "file:///C:/Apache/htdocs/Dev_1o_Ano/cidade/html/Biblioteca/biblioteca.html"; 
+    window.location.href = "Biblioteca/biblioteca.html"; 
 
 } else if (usuario === "atendente" && senha === "5678" && tipo === "Atendente") {
-    window.location.href = "file:///C:/Apache/htdocs/Dev_1o_Ano/cidade/html/BibliotecaAtendente/bibliotecaAtendente.html"; 
+    window.location.href = "BibliotecaAtendente/bibliotecaAtendente.html"; 
 
 } else {
     alert("Usuário, senha ou tipo incorreto!");
