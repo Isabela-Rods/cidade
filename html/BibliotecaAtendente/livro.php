@@ -63,7 +63,7 @@ $reservas = $conn->query($sql);
 <table>
     <tr>
         <th>ID Livro</th>
-        <th>ID Cliente</th>
+        <th>ID Reserva</th>
         <th>Livro</th>
         <th>Autor</th>
         <th>Reserva</th>
@@ -72,10 +72,10 @@ $reservas = $conn->query($sql);
     <?php while ($row = $reservas->fetch_assoc()): ?>
         <tr>
             <td><?= $row['id_livro'] ?></td>
-            <td><?= $row['id_usuario'] ?></td>
+            <td><?= $row['id_reserva'] ?></td>
             <td><?= $row['Livro'] ?></td>
             <td><?= $row['Autor'] ?></td>
-            <td><?= $row['data_reserva'] ?></td>
+            <td><?= $row['reserva'] ?></td>
         </tr>
     <?php endwhile; ?>
 

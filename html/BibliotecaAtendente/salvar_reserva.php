@@ -12,11 +12,23 @@ $sql = "INSERT INTO Reserva (nome_cliente, livro, data_reserva, data_entrega)
         VALUES ('$nome', '$livro', '$data_reserva', '$data_entrega')";
 
 if ($conn->query($sql) === TRUE) {
+
+     $id_reserva = $conn->insert_id;
+
+    // 3️⃣ Atualizar automaticamente o livro associado
+    $sql_livro = "UPDATE Livro 
+                  SET reserva = 'SIM', id_reserva = '$id_reserva'
+                  WHERE Livro = '$livro'";
+
+    $conn->query($sql_livro);
+
+    // 4️⃣ Agora sim pode redirecionar
     header("Location: reserva.php?ok=1");
     exit;
 } else {
     echo "Erro: " . $conn->error;
 }
+
 
 print_r($_POST);
 exit;

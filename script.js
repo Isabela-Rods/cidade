@@ -66,6 +66,7 @@ function limparReserva() {
     localStorage.removeItem("dataRetirada");
  
     alert("Reserva apagada.");
+   
 }
 
 function descricao() {

@@ -24,18 +24,31 @@ CREATE TABLE Reserva(
     
     CREATE TABLE Livro(
 	id_livro INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    id_usuario INT,
+    id_reserva INT NULL,
     Livro VARCHAR(100),
     Autor VARCHAR(100),
-    data_reserva ENUM('SIM', 'NAO')DEFAULT 'NAO'
+    reserva ENUM('SIM', 'NAO') DEFAULT 'NAO',
+    FOREIGN KEY (id_reserva) REFERENCES Reserva(id_reserva)
+    ON DELETE SET NULL;
+
     );
     
-INSERT INTO Reserva (nome_cliente, livro, data_reserva, data_entrega)
-VALUES ('Fernando Pessoa', 'Coraline', '2024-11-28', DATE_ADD('2024-11-28', INTERVAL 30 DAY)
-);
 
-INSERT INTO Livro (id_usuario, Livro, Autor, data_reserva)
-VALUES (1, 'Coraline', 'Neil Gaiman', 'SIM'
-);
+
+INSERT INTO Livro (id_reserva, Livro, Autor, reserva)
+VALUES 
+(NULL, 'Coraline', 'Neil Gaiman', 'NAO'),
+(NULL, 'Avesso de Pele', 'Jeferson Tenário', 'NAO'),
+(NULL, 'Os Sofrimentos do jovem Wether', 'Goethe', 'NAO'),
+(NULL, 'Maldito Coelho', 'Bora Chung', 'NAO'),
+(NULL, 'Deuses Americanos', 'Neil Gaiman', 'NAO'),
+(NULL, 'Memórias do subsolo', 'Fiodór Dostoiévski', 'NAO'),
+(NULL, 'Morra, amor', 'Ariana Harwicz', 'NAO'),
+(NULL, '1984', 'George Orwell', 'NAO'),
+(NULL, 'O processo', 'Franz Kafka', 'NAO');
+
+UPDATE livro SET reserva = 'NAO' WHERE id_reserva IS NULL;
+
+
 -- Expressão SQL para cadastrar um usuário
 INSERT INTO usuarios (usuario, senha) VALUES ('cliente', MD5('1234'));
