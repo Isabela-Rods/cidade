@@ -29,12 +29,9 @@ CREATE TABLE Reserva(
     Autor VARCHAR(100),
     reserva ENUM('SIM', 'NAO') DEFAULT 'NAO',
     FOREIGN KEY (id_reserva) REFERENCES Reserva(id_reserva)
-    ON DELETE SET NULL;
-
+    ON DELETE SET NULL
     );
     
-
-
 INSERT INTO Livro (id_reserva, Livro, Autor, reserva)
 VALUES 
 (NULL, 'Coraline', 'Neil Gaiman', 'NAO'),
@@ -48,6 +45,16 @@ VALUES
 (NULL, 'O processo', 'Franz Kafka', 'NAO');
 
 UPDATE livro SET reserva = 'NAO' WHERE id_reserva IS NULL;
+
+DELIMITER //
+CREATE TRIGGER tg_reserva_apagada
+AFTER DELETE ON Reserva
+FOR EACH ROW
+BEGIN
+    UPDATE Livro
+    SET reserva = 'NAO'
+    WHERE id_reserva IS NULL;
+END //
 
 
 -- Expressão SQL para cadastrar um usuário
