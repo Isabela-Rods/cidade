@@ -52,12 +52,15 @@ function notificarUsuario() {
     const nome = localStorage.getItem("usuarioNome");
     const livro = localStorage.getItem("livroReservado");
     const data = localStorage.getItem("dataRetirada");
+    
 
     if (!nome || !livro || !data) return;
 
     div.innerHTML =
         `📚 <strong>${livro}</strong> foi reservado para <strong>${nome}</strong><br>
         📅 Data da retirada: <strong>${data}</strong>`;
+        
+
 }
 
 function limparReserva() {
